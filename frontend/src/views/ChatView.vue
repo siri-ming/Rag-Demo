@@ -642,8 +642,8 @@ onMounted(() => {
 }
 
 .tip-item:hover {
-  background: rgba(6, 182, 212, 0.08);
-  border-color: rgba(6, 182, 212, 0.2);
+  background: var(--primary-bg);
+  border-color: var(--primary-border);
   transform: translateX(4px);
 }
 
@@ -726,7 +726,7 @@ onMounted(() => {
 }
 
 .assistant-body code {
-  background: rgba(6, 182, 212, 0.12);
+  background: var(--primary-bg-hover);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 13px;
@@ -767,7 +767,7 @@ onMounted(() => {
   border-left: 3px solid var(--primary);
   margin: 12px 0;
   padding: 8px 16px;
-  background: rgba(6, 182, 212, 0.06);
+  background: var(--primary-bg);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: var(--text-secondary);
 }
@@ -900,8 +900,8 @@ onMounted(() => {
 }
 
 .source-item:hover {
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.06);
+  border-color: var(--primary-border-hover);
+  background: var(--primary-bg);
   transform: translateX(4px);
 }
 
@@ -924,7 +924,7 @@ onMounted(() => {
 }
 
 .page-badge {
-  background: rgba(6, 182, 212, 0.15);
+  background: var(--primary-bg-hover);
   color: var(--primary-light);
   padding: 2px 8px;
   border-radius: var(--radius-sm);
@@ -993,8 +993,8 @@ onMounted(() => {
 }
 
 .toolbar-btn:hover {
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--primary-border-hover);
+  background: var(--primary-bg);
   color: var(--primary-light);
 }
 
@@ -1291,8 +1291,8 @@ onMounted(() => {
 }
 
 .cmh-select-all-btn:hover {
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--primary-border-hover);
+  background: var(--primary-bg);
   color: var(--primary-light);
 }
 
@@ -1341,14 +1341,14 @@ onMounted(() => {
 }
 
 .cm-card:hover {
-  border-color: rgba(6, 182, 212, 0.2);
-  background: rgba(6, 182, 212, 0.06);
+  border-color: var(--primary-border);
+  background: var(--primary-bg);
   transform: translateY(-2px);
 }
 
 .cm-card.selected {
   border-color: var(--primary);
-  background: rgba(6, 182, 212, 0.1);
+  background: var(--primary-bg-hover);
   box-shadow: 0 4px 16px var(--primary-glow);
 }
 

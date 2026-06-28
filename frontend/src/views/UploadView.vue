@@ -597,7 +597,7 @@ onMounted(() => {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), rgba(139, 92, 246, 0.04));
+  background: linear-gradient(135deg, var(--primary-bg), var(--accent-bg));
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
@@ -610,9 +610,9 @@ onMounted(() => {
 .upload-zone:hover,
 .upload-zone.drag-over {
   border-color: var(--primary);
-  background: rgba(6, 182, 212, 0.06);
+  background: var(--primary-bg);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.12), 0 0 40px rgba(6, 182, 212, 0.04);
+  box-shadow: 0 8px 32px var(--primary-shadow), 0 0 40px var(--primary-bg);
 }
 
 .upload-zone.drag-over {
@@ -620,8 +620,8 @@ onMounted(() => {
 }
 
 @keyframes zoneGlow {
-  0%, 100% { box-shadow: 0 8px 32px rgba(6, 182, 212, 0.12), 0 0 40px rgba(6, 182, 212, 0.04); }
-  50% { box-shadow: 0 8px 40px rgba(6, 182, 212, 0.2), 0 0 60px rgba(6, 182, 212, 0.08); }
+  0%, 100% { box-shadow: 0 8px 32px var(--primary-shadow), 0 0 40px var(--primary-bg); }
+  50% { box-shadow: 0 8px 40px var(--primary-bg-hover), 0 0 60px var(--primary-bg); }
 }
 
 .upload-icon {
@@ -786,9 +786,9 @@ onMounted(() => {
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  background: rgba(139, 92, 246, 0.1);
+  background: var(--accent-bg);
   color: var(--accent-light);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 13px;
@@ -797,8 +797,8 @@ onMounted(() => {
 }
 
 .btn-secondary:hover {
-  background: rgba(139, 92, 246, 0.18);
-  border-color: rgba(139, 92, 246, 0.35);
+  background: var(--accent-bg-hover);
+  border-color: var(--accent-border-hover);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px var(--accent-glow);
 }
@@ -808,9 +808,9 @@ onMounted(() => {
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  background: rgba(6, 182, 212, 0.1);
+  background: var(--primary-bg);
   color: var(--primary-light);
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  border: 1px solid var(--primary-border);
   border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 13px;
@@ -819,8 +819,8 @@ onMounted(() => {
 }
 
 .btn-preview:hover {
-  background: rgba(6, 182, 212, 0.18);
-  border-color: rgba(6, 182, 212, 0.35);
+  background: var(--primary-bg-hover);
+  border-color: var(--primary-border-strong);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px var(--primary-glow);
 }
@@ -897,10 +897,10 @@ onMounted(() => {
 }
 
 .doc-card:hover {
-  border-color: rgba(6, 182, 212, 0.2);
-  background: rgba(6, 182, 212, 0.04);
+  border-color: var(--primary-border);
+  background: var(--primary-bg);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md), 0 0 20px rgba(6, 182, 212, 0.04);
+  box-shadow: var(--shadow-md), 0 0 20px var(--primary-bg);
 }
 
 .doc-info h3 {
@@ -958,7 +958,7 @@ onMounted(() => {
   backdrop-filter: var(--blur-lg);
   border: 1px solid var(--border-normal);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg), 0 0 40px rgba(6, 182, 212, 0.06);
+  box-shadow: var(--shadow-lg), 0 0 40px var(--primary-bg);
   animation: scaleIn 0.25s ease;
 }
 
@@ -1048,8 +1048,8 @@ onMounted(() => {
 }
 
 .chunk-card:hover {
-  border-color: rgba(6, 182, 212, 0.2);
-  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.06);
+  border-color: var(--primary-border);
+  box-shadow: 0 4px 16px var(--primary-bg);
 }
 
 .chunk-card.has-parent {
@@ -1075,7 +1075,7 @@ onMounted(() => {
   font-weight: 700;
   font-size: 13px;
   color: var(--accent-light);
-  background: rgba(139, 92, 246, 0.12);
+  background: var(--accent-bg-hover);
   padding: 2px 10px;
   border-radius: var(--radius-sm);
 }
@@ -1130,7 +1130,7 @@ onMounted(() => {
 }
 
 .badge-page {
-  background: rgba(6, 182, 212, 0.12);
+  background: var(--primary-bg-hover);
   color: var(--primary-light);
 }
 
@@ -1169,8 +1169,8 @@ onMounted(() => {
 }
 
 .back-btn:hover {
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--primary-border-hover);
+  background: var(--primary-bg);
   color: var(--primary-light);
 }
 

@@ -40,6 +40,35 @@
         </li>
       </ul>
       
+      <!-- 主题切换 -->
+      <div class="theme-section">
+        <div class="theme-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          主题
+        </div>
+        <div class="theme-options">
+          <button 
+            v-for="t in themes" :key="t.id"
+            :class="['theme-btn', { active: currentTheme === t.id }]"
+            :title="t.name"
+            @click="setTheme(t.id)"
+          >
+            <span class="theme-dot" :style="{ background: t.preview }"></span>
+            <span class="theme-name">{{ t.name }}</span>
+          </button>
+        </div>
+      </div>
+
       <div class="sidebar-footer">
         <div class="status-dot"></div>
         <span class="version-tag">v1.0.0</span>
@@ -55,11 +84,34 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import ChatView from './views/ChatView.vue'
 import UploadView from './views/UploadView.vue'
 
 const currentView = ref('chat')
+
+// 主题配置
+const themes = [
+  { id: 'dark', name: '暗色', preview: 'linear-gradient(135deg, #06b6d4, #8b5cf6)' },
+  { id: 'light', name: '亮色', preview: 'linear-gradient(135deg, #0891b2, #7c3aed)' },
+  { id: 'cyberpunk', name: '赛博', preview: 'linear-gradient(135deg, #f472b6, #22d3ee)' },
+  { id: 'nature', name: '自然', preview: 'linear-gradient(135deg, #10b981, #f59e0b)' },
+]
+
+const currentTheme = ref('dark')
+
+function setTheme(id) {
+  currentTheme.value = id
+  document.documentElement.setAttribute('data-theme', id)
+  localStorage.setItem('rag-theme', id)
+}
+
+onMounted(() => {
+  const saved = localStorage.getItem('rag-theme')
+  if (saved && themes.some(t => t.id === saved)) {
+    setTheme(saved)
+  }
+})
 </script>
 
 <style scoped>
@@ -151,7 +203,7 @@ const currentView = ref('chat')
 }
 
 .nav-links li.active {
-  background: rgba(6, 182, 212, 0.1);
+  background: var(--bg-hover);
   color: var(--primary-light);
 }
 
@@ -191,9 +243,77 @@ const currentView = ref('chat')
   box-shadow: 0 0 8px var(--primary-glow);
 }
 
+/* 主题切换 */
+.theme-section {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.theme-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.theme-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  color: var(--text-tertiary);
+}
+
+.theme-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-normal);
+  color: var(--text-secondary);
+}
+
+.theme-btn.active {
+  border-color: var(--primary);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 1px var(--primary-glow);
+}
+
+.theme-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-btn.active .theme-dot {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.theme-name {
+  font-size: 12px;
+  font-weight: 500;
+}
+
 /* 底部 */
 .sidebar-footer {
-  padding: 16px 20px;
+  padding: 12px 20px;
   border-top: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
