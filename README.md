@@ -79,7 +79,8 @@ cd frontend
 npm run dev
 ```
 
-前端开发服务器运行在 **http://localhost:5173**，会自动将 `/api` 请求代理到后端 `localhost:8000`。
+前端开发服务器运行在 **http://localhost:5173**,  
+会自动将 `/api` 请求代理到后端 `localhost:8000`。
 
 > **注意**：生产环境不需要启动前端开发服务器，只需 `npm run build` 构建后由后端统一提供服务即可。
 

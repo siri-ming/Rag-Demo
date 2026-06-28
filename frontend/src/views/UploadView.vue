@@ -1291,7 +1291,7 @@ onMounted(() => {
   font-size: 13px;
   line-height: 1.8;
   color: var(--text-primary);
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--bg-surface);
   overflow-y: auto;
 }
 </style>
