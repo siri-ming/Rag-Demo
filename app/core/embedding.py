@@ -68,15 +68,16 @@ class EmbeddingService:
         embeddings = self.embed_batch([text])
         return embeddings[0]
 
-    def embed_batch(self, texts: list[str], batch_size: int = 16) -> list[list[float]]:
+    def embed_batch(self, texts: list[str], batch_size: int = 9) -> list[list[float]]:
         """
         批量将文本转换为向量。
 
         如果文本数量超过单次 API 调用限制，会自动分批处理。
+        DashScope Embedding API 单次最多接受 10 条文本。
 
         参数:
             texts: 待嵌入的文本列表。
-            batch_size: 每次 API 调用最多处理的文本数，默认 16。
+            batch_size: 每次 API 调用最多处理的文本数，默认 9（API 上限）。
 
         返回:
             向量列表，与输入文本一一对应。

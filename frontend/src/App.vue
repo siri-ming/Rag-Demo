@@ -92,10 +92,8 @@ const currentView = ref('chat')
 
 // 主题配置
 const themes = [
-  { id: 'dark', name: '暗色', preview: 'linear-gradient(135deg, #06b6d4, #8b5cf6)' },
-  { id: 'light', name: '亮色', preview: 'linear-gradient(135deg, #0891b2, #7c3aed)' },
-  { id: 'cyberpunk', name: '赛博', preview: 'linear-gradient(135deg, #f472b6, #22d3ee)' },
-  { id: 'nature', name: '自然', preview: 'linear-gradient(135deg, #10b981, #f59e0b)' },
+  { id: 'dark', name: '暗色', preview: 'linear-gradient(135deg, #0ea5e9, #a78bfa)' },
+  { id: 'light', name: '亮色', preview: 'linear-gradient(135deg, #0284c7, #7c3aed)' },
 ]
 
 const currentTheme = ref('dark')
@@ -262,9 +260,8 @@ onMounted(() => {
 }
 
 .theme-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  display: flex;
+  gap: 8px;
 }
 
 .theme-btn {
