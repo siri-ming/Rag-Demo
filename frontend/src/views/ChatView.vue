@@ -550,7 +550,6 @@ onMounted(() => {
 .chat-header {
   padding: 16px 28px;
   background: var(--bg-surface);
-  backdrop-filter: var(--blur-md);
   border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
@@ -587,7 +586,6 @@ onMounted(() => {
 .welcome-card {
   text-align: center;
   background: var(--bg-surface);
-  backdrop-filter: var(--blur-lg);
   border: 1px solid var(--border-normal);
   border-radius: var(--radius-xl);
   padding: 48px 40px;
@@ -602,16 +600,15 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: var(--primary);
   border-radius: 50%;
   color: white;
-  box-shadow: 0 8px 24px var(--primary-glow);
 }
 
 .welcome-card h2 {
   margin: 0 0 8px;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -644,7 +641,6 @@ onMounted(() => {
 .tip-item:hover {
   background: var(--primary-bg);
   border-color: var(--primary-border);
-  transform: translateX(4px);
 }
 
 .tip-icon {
@@ -675,9 +671,8 @@ onMounted(() => {
 }
 
 .message.user .message-avatar {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: var(--primary);
   color: white;
-  box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .message.assistant .message-avatar {
@@ -694,15 +689,13 @@ onMounted(() => {
 }
 
 .message.user .message-content {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: var(--primary);
   color: white;
   border-radius: var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-lg);
-  box-shadow: 0 4px 16px var(--primary-glow);
 }
 
 .message.assistant .message-content {
   background: var(--bg-surface);
-  backdrop-filter: var(--blur-md);
   color: var(--text-primary);
   border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-sm);
   border: 1px solid var(--border-normal);
@@ -730,7 +723,7 @@ onMounted(() => {
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 13px;
-  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-family: var(--font-mono);
   color: var(--primary-light);
 }
 
@@ -846,7 +839,6 @@ onMounted(() => {
 .sources-panel {
   border-top: 1px solid var(--border-subtle);
   background: var(--bg-surface);
-  backdrop-filter: var(--blur-md);
   max-height: 35vh;
   display: flex;
   flex-direction: column;
@@ -902,7 +894,6 @@ onMounted(() => {
 .source-item:hover {
   border-color: var(--primary-border-hover);
   background: var(--primary-bg);
-  transform: translateX(4px);
 }
 
 .source-header {
@@ -966,7 +957,6 @@ onMounted(() => {
   padding: 14px 28px 18px;
   border-top: 1px solid var(--border-subtle);
   background: var(--bg-surface);
-  backdrop-filter: var(--blur-md);
   flex-shrink: 0;
 }
 
@@ -1058,7 +1048,7 @@ onMounted(() => {
   border-radius: 50%;
   background: var(--primary);
   cursor: pointer;
-  box-shadow: 0 2px 8px var(--primary-glow);
+  box-shadow: 0 1px 3px var(--primary-shadow);
 }
 
 /* 输入表单 */
@@ -1086,7 +1076,7 @@ onMounted(() => {
 .input-form input:focus {
   border-color: var(--primary);
   background: var(--bg-surface);
-  box-shadow: 0 0 0 3px var(--primary-glow);
+  box-shadow: 0 0 0 3px var(--primary-shadow);
 }
 
 .send-btn {
@@ -1094,7 +1084,7 @@ onMounted(() => {
   align-items: center;
   gap: 6px;
   padding: 12px 20px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius-lg);
@@ -1106,8 +1096,7 @@ onMounted(() => {
 }
 
 .send-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--primary-glow);
+  background: var(--primary-dark);
 }
 
 .send-btn:disabled {
@@ -1120,7 +1109,7 @@ onMounted(() => {
   align-items: center;
   gap: 6px;
   padding: 12px 20px;
-  background: linear-gradient(135deg, var(--danger), #dc2626);
+  background: var(--danger);
   color: white;
   border: none;
   border-radius: var(--radius-lg);
@@ -1129,20 +1118,17 @@ onMounted(() => {
   font-weight: 600;
   transition: all var(--transition-normal);
   white-space: nowrap;
-  animation: pulse 2s infinite;
 }
 
 .stop-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+  opacity: 0.9;
 }
 
 /* 模态框 */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: var(--blur-md);
+  background: oklch(0 0 0 / 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1152,7 +1138,6 @@ onMounted(() => {
 
 .modal-content {
   background: var(--bg-elevated);
-  backdrop-filter: var(--blur-lg);
   border: 1px solid var(--border-normal);
   border-radius: var(--radius-xl);
   max-width: 800px;
@@ -1235,7 +1220,6 @@ onMounted(() => {
 /* 知识库选择模态框 */
 .collection-modal {
   background: var(--bg-elevated);
-  backdrop-filter: var(--blur-lg);
   border: 1px solid var(--border-normal);
   border-radius: var(--radius-xl);
   max-width: 640px;
@@ -1264,7 +1248,7 @@ onMounted(() => {
 .cmh-left h3 {
   margin: 0;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -1343,13 +1327,11 @@ onMounted(() => {
 .cm-card:hover {
   border-color: var(--primary-border);
   background: var(--primary-bg);
-  transform: translateY(-2px);
 }
 
 .cm-card.selected {
   border-color: var(--primary);
   background: var(--primary-bg-hover);
-  box-shadow: 0 4px 16px var(--primary-glow);
 }
 
 .cm-card-check {
@@ -1408,7 +1390,7 @@ onMounted(() => {
 
 .cm-confirm-btn {
   padding: 10px 28px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -1419,7 +1401,6 @@ onMounted(() => {
 }
 
 .cm-confirm-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--primary-glow);
+  background: var(--primary-dark);
 }
 </style>

@@ -589,45 +589,16 @@ onMounted(() => {
   cursor: pointer;
   transition: all var(--transition-normal);
   background: var(--bg-hover);
-  position: relative;
-  overflow: hidden;
-}
-
-.upload-zone::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--primary-bg), var(--accent-bg));
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-}
-
-.upload-zone:hover::before,
-.upload-zone.drag-over::before {
-  opacity: 1;
 }
 
 .upload-zone:hover,
 .upload-zone.drag-over {
   border-color: var(--primary);
   background: var(--primary-bg);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px var(--primary-shadow), 0 0 40px var(--primary-bg);
-}
-
-.upload-zone.drag-over {
-  animation: zoneGlow 1.5s ease-in-out infinite;
-}
-
-@keyframes zoneGlow {
-  0%, 100% { box-shadow: 0 8px 32px var(--primary-shadow), 0 0 40px var(--primary-bg); }
-  50% { box-shadow: 0 8px 40px var(--primary-bg-hover), 0 0 60px var(--primary-bg); }
 }
 
 .upload-icon {
   margin-bottom: 14px;
-  position: relative;
-  z-index: 1;
   color: var(--primary);
   opacity: 0.7;
   transition: all var(--transition-normal);
@@ -636,15 +607,12 @@ onMounted(() => {
 .upload-zone:hover .upload-icon,
 .upload-zone.drag-over .upload-icon {
   opacity: 1;
-  transform: translateY(-4px);
 }
 
 .upload-zone p {
   margin: 6px 0;
   color: var(--text-secondary);
   font-size: 14px;
-  position: relative;
-  z-index: 1;
 }
 
 .upload-hint {
@@ -690,7 +658,7 @@ onMounted(() => {
 .option-group select:focus {
   border-color: var(--primary);
   background: var(--bg-surface);
-  box-shadow: 0 0 0 3px var(--primary-glow);
+  box-shadow: 0 0 0 3px var(--primary-shadow);
 }
 
 .option-group select option {
@@ -716,12 +684,9 @@ onMounted(() => {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
-  background-size: 200% 100%;
-  animation: shimmer 1.5s linear infinite;
+  background: var(--primary);
   transition: width 0.3s ease;
   border-radius: 3px;
-  box-shadow: 0 0 12px var(--primary-glow);
 }
 
 .upload-progress p {
@@ -777,8 +742,6 @@ onMounted(() => {
 .btn-danger:hover {
   background: rgba(239, 68, 68, 0.2);
   border-color: rgba(239, 68, 68, 0.4);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
 }
 
 .btn-secondary {
@@ -799,8 +762,6 @@ onMounted(() => {
 .btn-secondary:hover {
   background: var(--accent-bg-hover);
   border-color: var(--accent-border-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .btn-preview {
@@ -821,8 +782,6 @@ onMounted(() => {
 .btn-preview:hover {
   background: var(--primary-bg-hover);
   border-color: var(--primary-border-strong);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .btn-delete {
@@ -899,8 +858,6 @@ onMounted(() => {
 .doc-card:hover {
   border-color: var(--primary-border);
   background: var(--primary-bg);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md), 0 0 20px var(--primary-bg);
 }
 
 .doc-info h3 {
@@ -939,8 +896,7 @@ onMounted(() => {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: var(--blur-md);
+  background: oklch(0 0 0 / 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -955,10 +911,9 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   background: var(--bg-elevated);
-  backdrop-filter: var(--blur-lg);
   border: 1px solid var(--border-normal);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg), 0 0 40px var(--primary-bg);
+  box-shadow: var(--shadow-lg);
   animation: scaleIn 0.25s ease;
 }
 
@@ -1049,7 +1004,6 @@ onMounted(() => {
 
 .chunk-card:hover {
   border-color: var(--primary-border);
-  box-shadow: 0 4px 16px var(--primary-bg);
 }
 
 .chunk-card.has-parent {
@@ -1060,8 +1014,7 @@ onMounted(() => {
 
 .chunk-card.has-parent:hover {
   border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
-  transform: translateY(-2px);
+  background: rgba(16, 185, 129, 0.06);
 }
 
 .chunk-card-header {
@@ -1093,7 +1046,7 @@ onMounted(() => {
   font-size: 13px;
   line-height: 1.7;
   color: var(--text-secondary);
-  background: rgba(0, 0, 0, 0.15);
+  background: var(--bg-surface);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   margin: 0;
@@ -1203,7 +1156,7 @@ onMounted(() => {
   font-size: 14px;
   line-height: 1.8;
   color: var(--text-primary);
-  background: rgba(0, 0, 0, 0.12);
+  background: var(--bg-surface);
   padding: 16px;
   border-radius: var(--radius-md);
   margin: 0;
@@ -1249,6 +1202,10 @@ onMounted(() => {
   max-height: none;
   display: flex;
   flex-direction: column;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-normal);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
 }
 
 .file-preview-modal .modal-header {

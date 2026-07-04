@@ -92,8 +92,8 @@ const currentView = ref('chat')
 
 // 主题配置
 const themes = [
-  { id: 'dark', name: '暗色', preview: 'linear-gradient(135deg, #0ea5e9, #a78bfa)' },
-  { id: 'light', name: '亮色', preview: 'linear-gradient(135deg, #0284c7, #7c3aed)' },
+  { id: 'dark', name: '暗色', preview: '#0ea5e9' },
+  { id: 'light', name: '亮色', preview: '#0284c7' },
 ]
 
 const currentTheme = ref('dark')
@@ -123,7 +123,6 @@ onMounted(() => {
 .sidebar {
   width: 240px;
   background: var(--bg-elevated);
-  backdrop-filter: var(--blur-lg);
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
@@ -145,10 +144,9 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: var(--primary);
   border-radius: var(--radius-md);
   color: white;
-  box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .logo-text {
@@ -160,7 +158,7 @@ onMounted(() => {
 .logo-text h2 {
   margin: 0;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.3px;
 }
@@ -168,8 +166,6 @@ onMounted(() => {
 .logo-subtitle {
   font-size: 11px;
   color: var(--text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 /* 导航 */
@@ -214,9 +210,7 @@ onMounted(() => {
   transition: transform var(--transition-fast);
 }
 
-.nav-links li:hover .nav-icon {
-  transform: scale(1.1);
-}
+
 
 .nav-label {
   font-size: 14px;
@@ -238,7 +232,6 @@ onMounted(() => {
 .nav-links li.active .nav-indicator {
   opacity: 1;
   transform: scale(1);
-  box-shadow: 0 0 8px var(--primary-glow);
 }
 
 /* 主题切换 */
@@ -287,7 +280,6 @@ onMounted(() => {
   border-color: var(--primary);
   background: var(--bg-hover);
   color: var(--text-primary);
-  box-shadow: 0 0 0 1px var(--primary-glow);
 }
 
 .theme-dot {
@@ -300,7 +292,6 @@ onMounted(() => {
 
 .theme-btn.active .theme-dot {
   border-color: var(--primary);
-  box-shadow: 0 0 8px var(--primary-glow);
 }
 
 .theme-name {
@@ -322,8 +313,6 @@ onMounted(() => {
   height: 8px;
   border-radius: 50%;
   background: var(--success);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
-  animation: pulse 2s infinite;
 }
 
 .version-tag {
